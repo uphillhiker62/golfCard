@@ -1,37 +1,162 @@
+@myBackColor: rgba(255, 255, 255, 0.9);
+@titleColPad: padding-bottom 2px;
+@myOrange: #ffde63;
 
-.card {
-  display: flex;
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-image: url("images/golf.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+.container {
+  width: 100%;
+  height: 100%;
 
-  .left{
-
-    .pHead{
-      padding: 10px;
-    }
-
+  h3 {
+    margin-left: 5px;
   }
-  .right{
-    display: flex;
-    flex-direction: column;
 
-    #row{
+  .gameSetUp {
+    margin: 0 auto;
+
+    .courseDdStyling {
+      width: 125px;
+      height: 35px;
+      background-color: #dadfeafa;
+      margin: 0 0 10px 5px;
 
     }
+  }
 
-    .holeRow{
-      border: 1px solid #dadfea;
-      padding: 10px;
+  .card {
+    display: flex;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: 5px;
+    border-radius: 5px;
+
+    .left {
+      padding: 0 20px 0 10px;
+      background-color: rgba(255, 255, 255, 0.9);
       display: flex;
       flex-direction: column;
-      align-items: center;
+      justify-content: flex-end;
 
-      .rowHead{
-        padding-left: 5px;
+      .playerLabel {
+        width: 67px;
+        margin-bottom: 14px;
+        white-space: nowrap;
       }
 
-      .holeInput{
-        width: 15px;
+      .fa-trash-alt{
+        &:hover{
+          color: red;
+          cursor: pointer;
+        }
+      }
+
+      .playerTag {
+        margin-left: 7px;
+      }
+    }
+
+    .right {
+      display: flex;
+      background-color: @myBackColor;
+
+      .column {
+        //border: 1px solid #dadfea;
+        padding: 2px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 45px;
+
+        .out {
+          border: 5px solid @myOrange;
+        }
+
+        .box {
+          height: 30px;
+          padding-bottom: 2px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .total {
+          border: 1px solid @myOrange;
+          //background-color: cornsilk;
+          width: 45px;
+          display: flex;
+          flex-direction: column;
+
+          #pTotal {
+
+          }
+
+          #totalCol {
+
+          }
+
+        }
+
+        .colHead {
+          padding-bottom: @titleColPad;
+          width: 45px;
+          border: 1px solid @myOrange;
+          background-color: cornsilk;
+        }
+
+        .yds {
+          padding-bottom: @titleColPad;
+          width: 45px;
+          border: 1px solid @myOrange;
+          background-color: rgba(255, 255, 255, 0.9);
+
+        }
+
+        .par {
+          padding-bottom: @titleColPad;
+          width: 45px;
+          border: 1px solid @myOrange;
+          background-color: cornsilk;
+        }
+
+        .blk {
+          padding-bottom: @titleColPad;
+          width: 45px;
+          border: 1px solid @myOrange;
+        }
+
+        .hcp {
+          padding-bottom: @titleColPad;
+          width: 45px;
+          border: 1px solid @myOrange;
+          background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .tot {
+          padding-bottom: @titleColPad;
+          width: 45px;
+          border: 1px solid @myOrange;
+          background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .holeInput {
+          width: 43px;
+          height: 30px;
+          border: 1px solid @myOrange;
+          background-color: @myBackColor;
+        }
       }
     }
   }
 }
+
+
+

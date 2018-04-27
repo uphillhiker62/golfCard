@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Title</title>
+    <title>Golf Card</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
@@ -12,16 +12,26 @@
     <script src="action.js" defer></script>
 </head>
 <body>
+<div class="container">
 
-    <select onchange="getCourse(this.value)" class="courseDropdown"></select>
-    <select onchange="setTee(this.value)" class="teeDropdown"></select>
+    <h3>To create a game choose a course and your tee!</h3>
+
+    <div class="gameSetUp">
+        <select onchange="chooseCourse(this.value)" class="courseDropDown courseDdStyling">
+            <option value="choose-course">Choose Course</option>
+        </select>
+        <select onchange="setTee(this.value)" class="teeDropDown courseDdStyling">
+            <option value="choose-tee">Choose Tee</option>
+        </select>
+    </div>
 
     <div class="card">
         <div class="left">
-            <div class="pHead">Players</div>
+            <!--<div class="pHead"><img src="Golf-Society.png" alt="" class="golfImg"></div>-->
         </div>
         <div class="right"></div>
     </div>
 
+</div>
 </body>
 </html>

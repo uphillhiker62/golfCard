@@ -1,23 +1,120 @@
-.card {
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-image: url("images/golf.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+.container h3 {
+  margin-left: 5px;
+}
+.container .gameSetUp {
+  margin: 0 auto;
+}
+.container .gameSetUp .courseDdStyling {
+  width: 125px;
+  height: 35px;
+  background-color: #dadfeafa;
+  margin: 0 0 10px 5px;
+}
+.container .card {
   display: flex;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-left: 5px;
+  border-radius: 5px;
 }
-.card .left .pHead {
-  padding: 10px;
-}
-.card .right {
+.container .card .left {
+  padding: 0 20px 0 10px;
+  background-color: rgba(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 }
-.card .right .holeRow {
-  border: 1px solid #dadfea;
-  padding: 10px;
+.container .card .left .playerLabel {
+  width: 67px;
+  margin-bottom: 14px;
+  white-space: nowrap;
+}
+.container .card .left .fa-trash-alt:hover {
+  color: red;
+  cursor: pointer;
+}
+.container .card .left .playerTag {
+  margin-left: 7px;
+}
+.container .card .right {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.container .card .right .column {
+  padding: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 45px;
 }
-.card .right .holeRow .rowHead {
-  padding-left: 5px;
+.container .card .right .column .out {
+  border: 5px solid #ffde63;
 }
-.card .right .holeRow .holeInput {
-  width: 15px;
+.container .card .right .column .box {
+  height: 30px;
+  padding-bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .card .right .column .total {
+  border: 1px solid #ffde63;
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+}
+.container .card .right .column .colHead {
+  padding-bottom: padding-bottom 2px;
+  width: 45px;
+  border: 1px solid #ffde63;
+  background-color: cornsilk;
+}
+.container .card .right .column .yds {
+  padding-bottom: padding-bottom 2px;
+  width: 45px;
+  border: 1px solid #ffde63;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.container .card .right .column .par {
+  padding-bottom: padding-bottom 2px;
+  width: 45px;
+  border: 1px solid #ffde63;
+  background-color: cornsilk;
+}
+.container .card .right .column .blk {
+  padding-bottom: padding-bottom 2px;
+  width: 45px;
+  border: 1px solid #ffde63;
+}
+.container .card .right .column .hcp {
+  padding-bottom: padding-bottom 2px;
+  width: 45px;
+  border: 1px solid #ffde63;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.container .card .right .column .tot {
+  padding-bottom: padding-bottom 2px;
+  width: 45px;
+  border: 1px solid #ffde63;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.container .card .right .column .holeInput {
+  width: 43px;
+  height: 30px;
+  border: 1px solid #ffde63;
+  background-color: rgba(255, 255, 255, 0.9);
 }
