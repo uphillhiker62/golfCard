@@ -14,14 +14,14 @@
 <body>
 <div class="container">
 
-    <h3>To create a game choose a course and your tee!</h3>
+    <h3>To create a game choose a course and select a tee!</h3>
 
     <div class="gameSetUp">
-        <select onchange="chooseCourse(this.value)" class="courseDropDown courseDdStyling">
-            <option value="choose-course">Choose Course</option>
+        <select onchange="getCourse(this.value)" class="courseDropDown courseDdStyling">
+            <option value="choose-course">Select Course</option>
         </select>
         <select onchange="setTee(this.value)" class="teeDropDown courseDdStyling">
-            <option value="choose-tee">Choose Tee</option>
+            <option value="choose-tee">Select Tee</option>
         </select>
     </div>
 
