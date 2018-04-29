@@ -15,7 +15,7 @@ body {
   flex-direction: column;
 }
 .container .gameInfo {
-  margin: 13px auto;
+  margin: 50px auto 5px auto;
 }
 .container .gameSetUp {
   margin: 10px auto;
@@ -24,7 +24,7 @@ body {
   width: 125px;
   height: 35px;
   background-color: #dadfeafa;
-  margin: 0 0 10px 5px;
+  margin: 30px 0 30px 5px;
 }
 .container .card {
   display: flex;
