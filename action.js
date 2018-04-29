@@ -26,7 +26,7 @@ function loadDoc() {
 
 function getCourse(courseId) {
     console.log("you chose a course");
-    $(".chooseTee").html('');
+    $(".chooseTee").text('');
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -42,8 +42,16 @@ function getCourse(courseId) {
     xhttp.send();
 }
 
+let frontTotalYds = 0;
+let frontTotalPar = 0;
+let backTotalYds = 0;
+let backTotalPar = 0;
+let totalYds = 0;
+let totalPar = 0;
+let totalScore = 0;
+
 function setTee(teeindex){
-    $(right).html('');
+    $(right).text('');
     $(right).append(
         "<div class='column' id='colLabel'>"+
         "<div class='colHead box'>" + "Hole #" + "</div>"+
@@ -54,15 +62,6 @@ function setTee(teeindex){
     );
 
     selTee = teeindex;
-
-    let frontTotalYds = 0;
-    let frontTotalPar = 0;
-    let backTotalYds = 0;
-    let backTotalPar = 0;
-    let totalYds = 0;
-    let totalPar = 0;
-    let totalScore = 0;
-
 
     let mycourse = selCourse.data.holes;
     for(let i = 0; i < mycourse.length; i++){
@@ -126,6 +125,7 @@ function setTee(teeindex){
 }
 
 function createGolfCard(){
+    $(".left").text('');
     for(let p = 1; p <= numPlayers; p++){
         $(".left").append(
             "<div class='playerLabel playa golfer" + p + "'>" +
@@ -145,29 +145,35 @@ function createGolfCard(){
 
 totalNumHoles = 18;
 front9Holes = 9;
-back9HolesLow = 10;
-back9HolesHigh = 18;
+back9Holes = 18;
 
-function calcGolfScore(myVal){
+function calcGolfScore(myVal) {
     let tempScoreTotal = 0;
     let tempScoreFrontNine = 0;
     let tempScoreBackNine = 0;
-    for(let i = 1; i <= totalNumHoles; i++){
-        tempScoreTotal += Number($("#p" + myVal + "h" + (i-1)).val());
-        //tempScore += inValue;
+    for (let i = 1; i <= totalNumHoles; i++) {
+        tempScoreTotal += Number($("#p" + myVal + "h" + (i - 1)).val());
     }
-    $(".pTotal" + myVal).html(tempScoreTotal);
+    $(".pTotal" + myVal).text(tempScoreTotal);
 
-    for(let i = 1; i <= front9Holes; i++){
-        tempScoreFrontNine += Number($("#p" + myVal + "h" + (i-1)).val());
+    for (let i = 1; i <= front9Holes; i++) {
+        tempScoreFrontNine += Number($("#p" + myVal + "h" + (i - 1)).val());
     }
-    $(".outTotal" + myVal).html(tempScoreFrontNine);
+    $(".outTotal" + myVal).text(tempScoreFrontNine);
 
-    for(let i = 1; i >= back9HolesLow && i <= back9HolesHigh; i++){
-        tempScoreBackNine += Number($("#p" + myVal + "h" + (i-1)).val());
+    for (let i = 10; i <= back9Holes; i++) {
+        tempScoreBackNine += Number($("#p" + myVal + "h" + (i - 1)).val());
     }
-    $(".inTotal" + myVal).html(tempScoreBackNine);
+    $(".inTotal" + myVal).text(tempScoreBackNine);
 }
+
+
+    // for(let p = 0; p <= totalScore; p++)
+    // if($(".pTotal" + p) <= $("totalPar")){
+    //     console.log("Good");
+    // }else {
+    //     console.log("Bad");
+
 
 function deletePlayer(playernum){
     $(".golfer" + playernum).remove();
