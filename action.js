@@ -56,6 +56,7 @@ let totalPar = 0;
 let totalScore = 0;
 
 function setTee(teeindex){
+    $(".gameInfo").remove();
     $(right).text('');
     $("#totalPar").text('');
     $("#totalYds").text('');

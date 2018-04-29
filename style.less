@@ -15,13 +15,15 @@ html, body {
 .container {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 
-  h3 {
-    margin-left: 5px;
+  .gameInfo{
+    margin: 13px auto;
   }
 
   .gameSetUp {
-    margin: 0 auto;
+    margin: 10px auto;
 
     .courseDdStyling {
       width: 125px;
@@ -35,9 +37,8 @@ html, body {
   .card {
     display: flex;
     overflow: auto;
-    //background-color: rgba(255, 255, 255, 0.5);
-    margin-left: 5px;
     border-radius: 5px;
+    margin: 0 auto;
 
     .left {
       padding: 0 20px 0 10px;
