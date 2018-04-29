@@ -61,7 +61,7 @@ body {
   width: 45px;
 }
 .container .card .right .column .out {
-  border: 5px solid #ffde63;
+  border: 5px solid red;
 }
 .container .card .right .column .box {
   height: 30px;

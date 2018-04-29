@@ -1,16 +1,21 @@
-//Handicap is not set up.
+// *****************************************
+// Things that need working on:
+// Handicap is not set up.
+// Yard/par not set up for in/out totals
+// Message to the player stating if above, below or at par
+// ******************************************
 
 let selCourse;
 let selTee;
 let allCourses;
 let numPlayers = 4;
 let right = $(".right");
+let left = $(".left");
 
 loadDoc();
 
 function loadDoc() {
     let xhttp = new XMLHttpRequest();
-    console.log(allCourses);
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             allCourses = JSON.parse(this.responseText);
@@ -52,6 +57,8 @@ let totalScore = 0;
 
 function setTee(teeindex){
     $(right).text('');
+    $("#totalPar").text('');
+    $("#totalYds").text('');
     $(right).append(
         "<div class='column' id='colLabel'>"+
         "<div class='colHead box'>" + "Hole #" + "</div>"+
@@ -73,16 +80,18 @@ function setTee(teeindex){
             "<div class='hcp box'>"+ mycourse[i].teeBoxes[teeindex].hcp +"</div>"+
             "</div>");
 
+
         totalPar += parseInt(mycourse[i].teeBoxes[teeindex].par);
         console.log(totalPar);
         totalYds += parseInt(mycourse[i].teeBoxes[teeindex].yards);
+        //frontTotalYds += parseInt(mycourse[i].teeBoxes[teeindex].yards);
         }
 
         $(right).append(
             "<div class='column' id='inCol'>"+
             "<div class='colHead box'>In</div>"+
-            "<div class='yds box' id='backNineTotalYds'>" + backTotalYds + "</div>"+
-            "<div class='par box' id='backNineTotalPar'>" + backTotalPar + "</div>"+
+            "<div class='yds box' id='backNineTotalYds'></div>"+
+            "<div class='par box' id='backNineTotalPar'></div>"+
             "<div class='hcp box'>" + '' +"</div>"+
             "</div>"+
             "<div class='column' id='totalCol'>"+
@@ -107,10 +116,10 @@ function setTee(teeindex){
 
 
         $("#c8").after(
-            "<div class='column' id='outCol'>"+
+            "<div class='column out' id='outCol'>"+
             "<div class='colHead box'>Out</div>"+
-            "<div class='yds box' id='frontNineYdsTot'>" + frontTotalYds + "</div>"+
-            "<div class='par box' id='frontNineParTot'>" + frontTotalPar + "</div>"+
+            "<div class='yds box' id='frontNineYdsTot'></div>"+
+            "<div class='par box' id='frontNineParTot'></div>"+
             "<div class='hcp box'>" + '' +"</div>"+
             //"<div class='totalOut box' '+ p +'>" + '' +"</div>"+
             "</div>"
@@ -119,15 +128,16 @@ function setTee(teeindex){
 
         $("#totalPar").append(totalPar);
         $("#totalYds").append(totalYds);
+        //$("#frontNineYdsTot").append(frontTotalYds);
 
     createGolfCard();
 
 }
 
 function createGolfCard(){
-    $(".left").text('');
+    $(left).text('');
     for(let p = 1; p <= numPlayers; p++){
-        $(".left").append(
+        $(left).append(
             "<div class='playerLabel playa golfer" + p + "'>" +
             "<span onclick='deletePlayer(" + p + ")' class='far fa-trash-alt'></span>" +
             "<span class='playerTag' contenteditable='true'>Player " + p + "</span>" +
@@ -167,14 +177,6 @@ function calcGolfScore(myVal) {
     $(".inTotal" + myVal).text(tempScoreBackNine);
 }
 
-
-    // for(let p = 0; p <= totalScore; p++)
-    // if($(".pTotal" + p) <= $("totalPar")){
-    //     console.log("Good");
-    // }else {
-    //     console.log("Bad");
-
-
 function deletePlayer(playernum){
     $(".golfer" + playernum).remove();
     $(".total" + playernum).remove();
@@ -184,7 +186,21 @@ function deletePlayer(playernum){
     for(let i = 1; i <= front9Holes; i++){
         $("#p" + playernum + "h" + i).remove();
     }
-    for(let i = 1; i >= back9HolesLow && i <= back9HolesHigh; i++){
+    for(let i = 1; i <= back9Holes; i++){
         $("#p" + playernum + "h" + i).remove();
     }
 }
+
+// completeGame();
+//
+// function completeGame(){
+//     for(let p = 0; p <= totalScore; p++) {
+//         if ($(".pTotal" + p) <= $("totalPar")) {
+//             document.getElementsByClassName("scoreMessageBox").innerHTML = "Great score";
+//         } else {
+//             console.log("Better luck next time");
+//         }
+//     }
+// }
+
+
