@@ -31,6 +31,7 @@ body {
   overflow: auto;
   border-radius: 5px;
   margin: 0 auto;
+  box-shadow: -5px 7px 106px -5px rgba(0, 0, 0, 0.75);
 }
 .container .card .left {
   max-width: 125px;
